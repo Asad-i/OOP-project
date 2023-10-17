@@ -7,7 +7,7 @@
 using namespace std;
 
 class Character {
- private:
+ protected:
   string name;
   string type;
   int level;
@@ -17,10 +17,6 @@ class Character {
   int p_defence;
   int m_defence;
   int speed;
-  int p_attack_mod;
-  int m_attack_mod;
-  int p_defence_mod;
-  int m_defence_mod;
 
  public:
   Character();

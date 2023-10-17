@@ -51,70 +51,13 @@ void Character::set_type() {
     cout << "Invalid Input. Input must be 1,2 or 3." << endl;
   }
 }
-void Character::set_level(int para_level) {
-  if (para_level >= 1 && para_level <= 100) {
-    level = para_level;
-    cout << "Sucessfully changed level to " << para_level << endl;
-  } else {
-    cout << "Invalid Value. Level must be between 1 and 100 inclusive." << endl;
-  }
-}
-void Character::set_health(int para_health) {
-  if (para_health >= 1 && para_health <= 250) {
-    health = para_health;
-    cout << "Sucessfully changed health to " << para_health << endl;
-  } else {
-    cout << "Invalid Value. Health must be between 1 and 250 inclusive."
-         << endl;
-  }
-}
-void Character::set_p_attack(int para_p_attack) {
-  if (para_p_attack >= 1 && para_p_attack <= 250) {
-    p_attack = para_p_attack;
-    cout << "Sucessfully changed physical attack to " << para_p_attack << endl;
-  } else {
-    cout
-        << "Invalid Value. Physical Attack must be between 1 and 250 inclusive."
-        << endl;
-  }
-}
-void Character::set_m_attack(int para_m_attack) {
-  if (para_m_attack >= 1 && para_m_attack <= 250) {
-    m_attack = para_m_attack;
-    cout << "Sucessfully changed magical attack to " << para_m_attack << endl;
-  } else {
-    cout << "Invalid Value. Magical Attack must be between 1 and 250 inclusive."
-         << endl;
-  }
-}
-void Character::set_p_defence(int para_p_defence) {
-  if (para_p_defence >= 1 && para_p_defence <= 250) {
-    p_defence = para_p_defence;
-    cout << "Sucessfully changed physical defence to " << para_p_defence << endl;
-  } else {
-    cout << "Invalid Value. Physical Defence must be between 1 and 250 "
-            "inclusive."
-         << endl;
-  }
-}
-void Character::set_m_defence(int para_m_defence) {
-  cout << "Sucessfully changed magical defence to " << para_m_defence << endl;
-  if (para_m_defence >= 1 && para_m_defence <= 250) {
-    m_defence = para_m_defence;
-  } else {
-    cout
-        << "Invalid Value. Magical Defence must be between 1 and 250 inclusive."
-        << endl;
-  }
-}
-void Character::set_speed(int para_speed) {
-  if (para_speed >= 1 && para_speed <= 250) {
-    speed = para_speed;
-    cout << "Sucessfully changed speed to " << para_speed << endl;
-  } else {
-    cout << "Invalid Value. Speed must be between 1 and 250 inclusive." << endl;
-  }
-}
+void Character::set_level(int para_level) { level = para_level; }
+void Character::set_health(int para_health) {health = para_health;}
+void Character::set_p_attack(int para_p_attack) { p_attack = para_p_attack; }
+void Character::set_m_attack(int para_m_attack) { m_attack = para_m_attack; }
+void Character::set_p_defence(int para_p_defence) {p_defence = para_p_defence;}
+void Character::set_m_defence(int para_m_defence) {m_defence = para_m_defence;}
+void Character::set_speed(int para_speed) { speed = para_speed; }
 void Character::set_stats(int para_level, int para_health, int para_p_attack, int para_m_attack, int para_p_defence, int para_m_defence, int para_speed){
   health = (((2 * para_health * level) / 100) + level + 10);
   p_attack = (((2 * para_p_attack * level) / 100) + 5);
