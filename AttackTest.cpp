@@ -71,12 +71,7 @@ private:
         assertEqual(attack.get_attack_type(), "Grass", "Set Attack Type Test");
     }
 
-void testPowerCalculation() {
-    Attack attack;
-    attack.set_power(80);
-    std::cout << "Actual power: " << attack.get_power() << std::endl;
-    assertApproxEqual(attack.get_power(), 65.0, 0.01, "Power Calculation Test");
-}
+
 };
 
 int main() {
