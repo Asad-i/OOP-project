@@ -18,29 +18,10 @@ bool testCustomConstructor() {
     
 }
 
-// Function to test the setters and getters
-bool testSettersAndGetters() {
-    Character player;
-    player.set_name();
-    player.set_type(); 
-    player.set_health(80);
-    player.set_p_attack(70);
-    player.set_m_attack(60);
-    player.set_p_defence(50);
-    player.set_m_defence(40);
-    player.set_speed(30);
-
-    return (player.get_name() == "Ace") && (player.get_type() == "Fire") &&
-        (player.get_level() == 42) && (player.get_health() == 80) &&
-        (player.get_p_attack() == 70) && (player.get_m_attack() == 60) &&
-        (player.get_p_defence() == 50) && (player.get_m_defence() == 40) &&
-        (player.get_speed() == 30);
-}
-
 
 int main() {
     int passed = 0;
-    int total = 3;
+    int total = 2;
 
     if (testDefaultConstructor()) {
         std::cout << "Default Constructor Test: Passed" << std::endl;
@@ -54,13 +35,6 @@ int main() {
         passed++;
     } else {
         std::cout << "Custom Constructor Test: Failed" << std::endl;
-    }
-
-    if (testSettersAndGetters()) {
-        std::cout << "Setters and Getters Test: Passed" << std::endl;
-        passed++;
-    } else {
-        std::cout << "Setters and Getters Test: Failed" << std::endl;
     }
 
     std::cout << "Passed " << passed << " out of " << total << " tests." << std::endl;

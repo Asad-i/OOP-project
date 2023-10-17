@@ -1,9 +1,12 @@
 #include "Status.h"
 
+// initialising accuracy and default stat
 Status::Status() {
   accuracy = 100;
   stat = "p_attack";
 }
+
+// Prompting user to select accuracy option
 void Status::set_accuracy() {
   cout << "Select 1 to have status increase by 1 stage for 100 percent accuracy."
        << endl;
@@ -12,12 +15,14 @@ void Status::set_accuracy() {
   cout << "Select 3 to have status increase by 3 stages for 40 percent accuracy."
        << endl;
   int integerInput;
+  // ensuring user input is within bounds
   while ((cout << "Change status move (1-5): ") &&
          (!(cin >> integerInput) || integerInput < 1 || integerInput > 3)) {
     cout << "Invalid Input. Input must be between 1-3 inclusive." << endl;
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   }
+  // sets accuracy base on user choice
   if (integerInput == 1) {
     accuracy = 100;
   } else if (integerInput == 2) {
@@ -26,12 +31,16 @@ void Status::set_accuracy() {
     accuracy == 40;
   }
 }
+
+// prompt user to choose which stat to increase
 void Status::set_stat() {
   cout << "Select 1 to have status increase your Physical Attack." << endl;
   cout << "Select 2 to have status increase your Magical Defence. " << endl;
   cout << "Select 3 to have status increase your Physical Defence. " << endl;
   cout << "Select 4 to have status increase your Magical Defence. " << endl;
   cout << "Select 5 to have status increase your Speed. " << endl;
+  
+  // ensuring input is valid
   int integerInput;
   while ((cout << "Change status move (1-5): ") &&
          (!(cin >> integerInput) || integerInput < 1 || integerInput > 5)) {
@@ -39,6 +48,8 @@ void Status::set_stat() {
     cin.clear();
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   }
+
+  // selecting stat based on user input
   if (integerInput == 1) {
     stat = "p_attack";
     cout << "Sucessfully changed status move to increase Physical Attack."
@@ -62,6 +73,7 @@ void Status::set_stat() {
     cout << "Invalid Input. Input must be 1-5 inclusive." << endl;
   }
 }
+
 void Status::increase(string stat) {
   if ((rand() & 100) < accuracy && accuracy == 40) {
     uses + 3;
