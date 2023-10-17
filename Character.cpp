@@ -28,34 +28,48 @@ Character::Character(string para_name, string para_type, int para_level, int par
 
 // Function to set the character's name
 void Character::set_name() {
-    cout << "New Name: ";
-    cin.ignore(); // Clear the input buffer, if needed.
-    getline(cin, name); // Read the entire line as the name.
+    string inputName;
+    do {
+        cout << "New Name: ";
+        cin.ignore(); // Clear the input buffer, if needed.
+        getline(cin, inputName);
+        
+        if (inputName.empty()) {
+            cout << "Invalid input. Name must not be empty." << endl;
+        } else {
+            name = inputName;
+        }
+    } while (name.empty());
 }
 
+
 // Function to set the character's type
-void Character::set_type() { 
-  cout << "Select 1 For Fire" << endl;
-  cout << "Select 2 For Grass" << endl;
-  cout << "Select 3 For Water" << endl;
-  int integerInput;
-  while ((cout << "Change Type (1-3): ") && (!(cin >> integerInput) || integerInput < 1 || integerInput > 3)){
-      cout << "Invalid Input. Input must be between 1-3 inclusive." << endl;
-      cin.clear();
-      cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-  }
-  if (integerInput == 1){
-    type = "Fire";
-    cout << "Successfully changed type to Fire." << endl;
-  } else if (integerInput == 2) {
-    type = "Grass";
-    cout << "Successfully changed type to Grass." << endl;
-  } else if (integerInput == 3) {
-    type = "Water";
-    cout << "Successfully changed type to Water." << endl;
-  } else {
-    cout << "Invalid Input. Input must be 1, 2, or 3." << endl;
-  }
+void Character::set_type() {
+    int inputType;
+    do {
+        cout << "Select 1 For Fire" << endl;
+        cout << "Select 2 For Grass" << endl;
+        cout << "Select 3 For Water" << endl;
+        
+        while (!(cout << "Change Type (1-3): ") || !(cin >> inputType) || inputType < 1 || inputType > 3){
+            cout << "Invalid Input. Input must be between 1-3 inclusive." << endl;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        
+        if (inputType == 1){
+            type = "Fire";
+            cout << "Successfully changed type to Fire." << endl;
+        } else if (inputType == 2) {
+            type = "Grass";
+            cout << "Successfully changed type to Grass." << endl;
+        } else if (inputType == 3) {
+            type = "Water";
+            cout << "Successfully changed type to Water." << endl;
+        } else {
+            cout << "Invalid Input. Input must be 1, 2, or 3." << endl;
+        }
+    } while (type.empty());
 }
 
 // Functions to set various character attributes
