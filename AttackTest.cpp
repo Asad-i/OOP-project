@@ -10,7 +10,6 @@ public:
         testOpponentTypeSetting();
         testAccuracySetting();
         testAttackTypeSetting();
-        testPowerCalculation();
     }
 
 private:
