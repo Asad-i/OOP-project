@@ -1,8 +1,15 @@
 #include "PhysicalAttack.h"
 
+PhysicalAttack::PhysicalAttack(){
+ attack_type = type;
+ power = 50;
+}
 int PhysicalAttack::damage_calc(){
   if ((rand() & 100) < accuracy){
     damage = ((2 * level) / 5 + 2) * power*(p_attack / opponent_p_defence) / 50 + 2;
+    if (attack_type == type){
+      damage * 1.5;
+    }
     int consecutive = 0;
   } else {
     cout << "Move Missed!" << endl;

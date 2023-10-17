@@ -8,6 +8,7 @@
 class PhysicalAttack: public Attack {
   int opponent_p_defence;
  public:
+  PhysicalAttack();
   int damage_calc();
   void set_opponent_p_defence(int para_p_defence);
 };

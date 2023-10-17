@@ -8,6 +8,7 @@
 class MagicalAttack: public Attack {
   int opponent_m_defence;
  public:
+  MagicalAttack();
   int damage_calc();
   void set_opponent_m_defence(int para_m_defence);
 };

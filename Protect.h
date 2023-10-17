@@ -9,8 +9,8 @@ class Protect : public Moves {
  private:
   int uses = 0;
  public:
-  void set_accuracy(){}
-  void protect_move(){}
+  Protect();
+  void protect_move();
 };
 
 #endif
