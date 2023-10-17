@@ -8,7 +8,7 @@
 #include "Protect.h"
 #include "Status.h"
 
-class Movepool: public PhysicalAttack, MagicalAttack, Attack, Status, Protect, Moves {
+class Movepool: public PhysicalAttack, public MagicalAttack, public Attack, public Status, public Protect, public Moves {
  private:
   int size;
   vector<Moves> Move_Set;
