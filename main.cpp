@@ -1,5 +1,12 @@
 #include <unistd.h>
+#include "Attack.h"
 #include "Character.h"
+#include "MagicalAttack.h"
+#include "Movepool.h"
+#include "Moves.h"
+#include "PhysicalAttack.h"
+#include "Protect.h"
+#include "Status.h"
 
 int main(void) {
   Character player1 = Character();
@@ -355,5 +362,51 @@ int main(void) {
     } else {
       cout << "Invalid Input. Input must be between 0-10 inclusive." << endl;
     }
+  }
+  Movepool player1Moves = Movepool();
+  Movepool player2Moves = Movepool();
+
+  while (player1.get_health() != 0 && player2.get_health() != 0) {
+    int move = rand() % 2;
+    int damage;
+    if (move = 0) {
+      int para_p_defence = player2.get_p_defence();
+      player1Moves.PhysicalAttack::set_opponent_p_defence(para_p_defence);
+      damage = player1Moves.PhysicalAttack::damage_calc();
+      player2.set_health((player2.get_health() - damage));
+    }
+    if (move = 1) {
+      int para_m_defence = player2.get_m_defence();
+      player1Moves.MagicalAttack::set_opponent_m_defence(para_m_defence);
+      damage = player1Moves.MagicalAttack::damage_calc();
+      player2.set_health((player2.get_health() - damage));
+    }
+    if (move = 2) {
+      player1Moves.Status::increase("p_attack");
+    }
+    int move = rand() % 3;
+  int damage;
+  if (move = 0) {
+    int para_p_defence = player2.get_p_defence();
+    player2Moves.PhysicalAttack::set_opponent_p_defence(para_p_defence);
+    damage = player1Moves.PhysicalAttack::damage_calc();
+    player2.set_health((player2.get_health() - damage));
+  }
+  if (move = 1) {
+    int para_m_defence = player2.get_m_defence();
+    player2Moves.MagicalAttack::set_opponent_m_defence(para_m_defence);
+    damage = player2Moves.MagicalAttack::damage_calc();
+    player2.set_health((player2.get_health() - damage));
+  }
+  if (move = 2) {
+    player2Moves.Status::increase("p_attack");
+  }
+  }
+  if (player1.get_health() == 0) {
+    cout << "Player 2 Won" << endl;
+    return 0;
+  }
+  if (player2.get_health() == 0) {
+    cout << "Player 1 Won" << endl;
   }
 }
