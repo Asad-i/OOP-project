@@ -1,0 +1,156 @@
+#include "Status.h"
+
+Status::Status() {
+  accuracy = 100;
+  stat = "p_attack";
+}
+void Status::set_accuracy() {
+  cout << "Select 1 to have status increase by 1 stage for 100 percent accuracy."
+       << endl;
+  cout << "Select 2 to have status increase by 2 stages for 70 percent accuracy."
+       << endl;
+  cout << "Select 3 to have status increase by 3 stages for 40 percent accuracy."
+       << endl;
+  int integerInput;
+  while ((cout << "Change status move (1-5): ") &&
+         (!(cin >> integerInput) || integerInput < 1 || integerInput > 3)) {
+    cout << "Invalid Input. Input must be between 1-3 inclusive." << endl;
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  }
+  if (integerInput == 1) {
+    accuracy = 100;
+  } else if (integerInput == 2) {
+    accuracy = 70;
+  } else if (integerInput == 3) {
+    accuracy == 40;
+  }
+}
+void Status::set_stat() {
+  cout << "Select 1 to have status increase your Physical Attack." << endl;
+  cout << "Select 2 to have status increase your Magical Defence. " << endl;
+  cout << "Select 3 to have status increase your Physical Defence. " << endl;
+  cout << "Select 4 to have status increase your Magical Defence. " << endl;
+  cout << "Select 5 to have status increase your Speed. " << endl;
+  int integerInput;
+  while ((cout << "Change status move (1-5): ") &&
+         (!(cin >> integerInput) || integerInput < 1 || integerInput > 5)) {
+    cout << "Invalid Input. Input must be between 1-5 inclusive." << endl;
+    cin.clear();
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  }
+  if (integerInput == 1) {
+    stat = "p_attack";
+    cout << "Sucessfully changed status move to increase Physical Attack."
+         << endl;
+  } else if (integerInput == 2) {
+    stat = "m_attack";
+    cout << "Sucessfully changed status move to increase Mhysical Attack."
+         << endl;
+  } else if (integerInput == 3) {
+    stat = "p_defence";
+    cout << "Sucessfully changed status move to increase Physical Defence."
+         << endl;
+  } else if (integerInput == 4) {
+    stat = "m_defence";
+    cout << "Sucessfully changed status move to increase Magical Defence."
+         << endl;
+  } else if (integerInput == 5) {
+    stat = "speed";
+    cout << "Sucessfully changed status move to increase Speed." << endl;
+  } else {
+    cout << "Invalid Input. Input must be 1-5 inclusive." << endl;
+  }
+}
+void Status::increase(string stat) {
+  if ((rand() & 100) < accuracy && accuracy == 40) {
+    uses + 3;
+    if (stat == "p_attack" && uses <= 8) {
+      set_p_attack(p_attack * (uses / 2) / ((uses - 3) / 2));
+      cout << get_name << "'s Physical Attack has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "m_attack" && uses <= 8) {
+      set_m_attack(m_attack * (uses / 2) / ((uses - 3) / 2));
+      cout << get_name << "'s Magical Attack has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "p_defence" && uses <= 8) {
+      set_p_defence(m_attack * (uses / 2) / ((uses - 3) / 2));
+      cout << get_name << "'s Physical Defence has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "m_defence" && uses <= 8) {
+      set_m_defence(m_attack * (uses / 2) / ((uses - 3) / 2));
+      cout << get_name << "'s Magical Defence has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "speed") {
+      set_speed(m_attack * (uses / 2) / ((uses - 1) / 2));
+      cout << get_name << "'s Speed has Increased!" << endl;
+      int consecutive = 0;
+    }
+  } else {
+    cout << "Move Missed!" << endl;
+  }
+  if ((rand() & 100) < accuracy && accuracy == 40) {
+    uses + 2;
+    if (stat == "p_attack" && uses <= 8) {
+      set_p_attack(p_attack * (uses / 2) / ((uses - 2) / 2));
+      cout << get_name << "'s Physical Attack has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "m_attack" && uses <= 8) {
+      set_m_attack(m_attack * (uses / 2) / ((uses - 2) / 2));
+      cout << get_name << "'s Magical Attack has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "p_defence" && uses <= 8) {
+      set_p_defence(m_attack * (uses / 2) / ((uses - 2) / 2));
+      cout << get_name << "'s Physical Defence has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "m_defence" && uses <= 8) {
+      set_m_defence(m_attack * (uses / 2) / ((uses - 2) / 2));
+      cout << get_name << "'s Magical Defence has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "speed") {
+      set_speed(m_attack * (uses / 2) / ((uses - 2) / 2));
+      cout << get_name << "'s Speed has Increased!" << endl;
+      int consecutive = 0;
+    }
+  } else {
+    cout << "Move Missed!" << endl;
+  }
+  if ((rand() & 100) < accuracy && accuracy == 40) {
+    uses++;
+    if (stat == "p_attack" && uses <= 8) {
+      set_p_attack(p_attack * (uses / 2) / ((uses - 1) / 2));
+      cout << get_name << "'s Physical Attack has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "m_attack" && uses <= 8) {
+      set_m_attack(m_attack * (uses / 2) / ((uses - 1) / 2));
+      cout << get_name << "'s Magical Attack has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "p_defence" && uses <= 8) {
+      set_p_defence(m_attack * (uses / 2) / ((uses - 1) / 2));
+      cout << get_name << "'s Physical Defence has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "m_defence" && uses <= 8) {
+      set_m_defence(m_attack * (uses / 2) / ((uses - 1) / 2));
+      cout << get_name << "'s Magical Defence has Increased!" << endl;
+      int consecutive = 0;
+    }
+    if (stat == "speed") {
+      set_speed(m_attack * (uses / 2) / ((uses - 1) / 2));
+      cout << get_name << "'s Speed has Increased!" << endl;
+      consecutive = 0;
+    }
+  } else {
+    cout << "Move Missed!" << endl;
+  }
+}
