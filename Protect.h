@@ -1,18 +1,22 @@
 #ifndef Protect_H
 #define Protect_H
-
 #include <iostream>
 #include <string>
 #include <limits>
 #include "Moves.h"
 
 class Protect : public Moves {
- private:
-  int uses = 0; // Variable to keep track of the number of times this move has been used.
-
+ protected:
+  int consecutive;
+  bool protect;
  public:
-  void set_accuracy(){} // Set accuracy for the Protect move.
-  void protect_move(){} // Perform the Protect move.
+  void set_uses();
+  void set_consecutive();
+  Protect();
+  Protect(string para_name, string para_type, int para_level, int para_health,
+          int para_p_attack, int para_m_attack, int para_p_defence,
+          int para_m_defence, int para_speed);
+  void play();
 };
 
 #endif

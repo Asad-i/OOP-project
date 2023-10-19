@@ -1,24 +1,30 @@
 #ifndef Attack_H
 #define Attack_H
-
 #include <iostream>
 #include <limits>
 #include <string>
-#include "Moves.h" // Include the base class header
+#include <cmath>
+#include <ctime>
+#include "Character.h"
+#include "Moves.h"
 
-class Attack : public Moves { // Define the Attack class, inheriting from the Moves class
-protected:
-    string attack_type; // Type of the attack
-    int power; // Power of the attack
-    string opponent_type; // Type of the opponent the attack targets
-    int damage; // Damage caused by the attack
+class Attack : public Moves{
+ protected:
+  string attack_type;
+  int power;
+  string opponent_type;
+  int opponent_health;
+  float damage;
 
-public:
-    virtual int damage_calc(); // Virtual function to calculate damage, to be implemented in derived classes
-    void set_opponent_type(string para_type); // set the opponent's type for the attack
-    void set_accuracy(); // set the accuracy of the attack
-    void set_attack_type(); // set the type of the attack
-    void set_power(int para_accuracy); // Function to set the power of the attack based on accuracy
+ public:
+  virtual int damage_calc();
+  string get_attack_type();
+  int get_accuracy();
+  int get_power();
+  int get_opponent_health();
+  virtual void set_opponent(string para_type, int para_health, int para_defence);
+  void set_accuracy();
+  void set_attack_type();
 };
 
 #endif
