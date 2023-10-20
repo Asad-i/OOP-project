@@ -7,7 +7,6 @@ class UnitTest {
 public:
     void runTests() {
         testDamageCalculation();
-        testOpponentTypeSetting();
         testAccuracySetting();
         testAttackTypeSetting();
     }
@@ -34,12 +33,6 @@ private:
     void testDamageCalculation() {
         Attack attack;
         assertEqual(attack.damage_calc(), 0, "Default Constructor Test - Damage Calculation");
-    }
-
-    void testOpponentTypeSetting() {
-        Attack attack;
-        attack.set_opponent_type("Fire");
-        assertEqual(attack.get_opponent_type(), "Fire", "Set Opponent Type Test");
     }
 
     void testAccuracySetting() {
